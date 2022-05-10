@@ -23,7 +23,11 @@ app.use(
 )
 app.use(morgan((keys.NODE_ENV === 'production') ? 'tiny' : 'common' ));
 app.use(cors());
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+    })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
