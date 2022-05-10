@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cancelButton, submitButton } from '../../helpers/buttons';
-import { validate } from '../../helpers';
 import { updateBudget } from '../../actions'
 
 function EditBudget(props) {
@@ -40,7 +39,7 @@ function EditBudget(props) {
                 </div>
                 <div className="amount-field">
                     <label>Goal amount:</label>
-                    <input type="number" step="0.01" min="0" onChange={e => setAmount(e.target.value)} value={amount} required />
+                    <input type="number" step="0.01" min="0.01" onChange={e => setAmount(e.target.value)} value={amount} required />
                 </div>
                 <div className="buttons">
                     {cancelButton()}

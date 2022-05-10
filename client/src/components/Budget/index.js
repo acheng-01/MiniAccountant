@@ -37,7 +37,7 @@ function BudgetForm(props) {
                 </div>
                 <div className="amount-field">
                     <label>Enter goal amount:</label>
-                    <input type="number" step="0.01" min="0" onChange={e => setAmount(e.target.value)} required />
+                    <input type="number" step="0.01" min="0.01" onChange={e => setAmount(e.target.value)} required />
                 </div>
                 <div className="buttons">
                     {cancelButton()}

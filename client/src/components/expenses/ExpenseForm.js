@@ -64,7 +64,7 @@ function ExpenseForm(props) {
                 </div>
                 <div className="cost">
                     <label>Cost</label>
-                    <input type="number" step="0.01" min="0" onChange={e => setCost(e.target.value)} required />
+                    <input type="number" step="0.01" min="0.01" onChange={e => setCost(e.target.value)} required />
                 </div>
                 <div className="category">
                     <label>Category</label>

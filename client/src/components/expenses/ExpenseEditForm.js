@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateExpense } from '../../actions';
-import { renderCategories, monthConvert, validate } from '../../helpers';
+import { renderCategories, monthConvert } from '../../helpers';
 import { cancelButton, submitButton } from '../../helpers/buttons';
 
 function ExpenseEditForm(props) {
@@ -25,9 +25,23 @@ function ExpenseEditForm(props) {
 
     const history = useNavigate();
 
+    const validateDate = (date) => {
+        if (parseFloat(date.split('-')[0]) !== props.year) {
+            return false;
+        }
+        if (monthConvert(parseFloat(date.split('-')[1]) - 1) !== props.month) {
+            return false;
+        }
+        return true;
+    }
+
     const handleUpdate = (e) => {
         e.preventDefault();
-        props.updateExpense(expenseId, history, data);
+        if (validateDate(data.date_added)) {
+            props.updateExpense(expenseId, history, data);
+        } else {
+            alert('Please choose a date for the current budget month and year.')
+        }
     }
 
     const handleKeyPress = e => {
@@ -60,7 +74,7 @@ function ExpenseEditForm(props) {
                     <input
                         type="number"
                         step="0.01"
-                        min="0"
+                        min="0.01"
                         onChange={e => setCost(e.target.value)}
                         value={oldCost}
                         required
