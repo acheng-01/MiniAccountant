@@ -20,16 +20,18 @@
 }
 
 .expense_information li:nth-child(1) {
-    width: 125px;
+    width: 150px;
     padding-right: 5px;
 }
 
 .expense_information li:nth-child(2) {
-    width: 100px;
+    width: 50px;
+    text-align: right;
 }
 
 .expense_information li:nth-child(3) {
     width: 125px;
+    margin-left: 25px;
 }
 
 .expense_information li:nth-child(4) {

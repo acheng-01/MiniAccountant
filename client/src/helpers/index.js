@@ -46,7 +46,3 @@ export const renderCategories = () => {
             return <option key={category} value={category}>{category}</option>
         })
 }
-
-export const validate = (value) => {
-        return /^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/.test(value)
-};

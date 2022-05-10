@@ -15,8 +15,6 @@ module.exports = (app) => {
         const parameter = req.params.month_year;
         const month = parameter.split('-')[0];
         const year = parameter.split('-')[1];
-        console.log(month);
-        console.log(year);
 
         try {
             const budget = await BudgetService.getBudgetById(req.user.id, month, year);
@@ -38,7 +36,7 @@ module.exports = (app) => {
             goal_amount: amount,
             created_by: req.user.id };
 
-
+        console.log(newBudget);
         const response = await BudgetService.insertBudget(newBudget);
         if (response) {
             res.status(201).json(serializeAmount(response));

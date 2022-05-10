@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { renderCategories, monthConvert, validate } from '../../helpers';
+import { renderCategories, monthConvert } from '../../helpers';
 import { cancelButton, submitButton } from '../../helpers/buttons';
 import { submitExpense } from '../../actions';
 import './ExpenseForm.css';
@@ -22,13 +22,22 @@ function ExpenseForm(props) {
     }
     const history = useNavigate();
 
+    const validateDate = (date) => {
+        if (parseFloat(date.split('-')[0]) !== props.year) {
+            return false;
+        }
+        if (monthConvert(parseFloat(date.split('-')[1]) - 1) !== props.month) {
+            return false;
+        }
+        return true;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (validate(data.cost)) {
-            data.cost = Math.round(parseFloat(data.cost) * 100) / 100;
+        if (validateDate(data.date_added)) {
             props.submitExpense(data, history);
         } else {
-            alert('Please enter a valid monetary value')
+            alert('Please choose a date for the current budget month and year.');
         }
     }
 
@@ -55,7 +64,7 @@ function ExpenseForm(props) {
                 </div>
                 <div className="cost">
                     <label>Cost</label>
-                    <input type="text" onChange={e => setCost(e.target.value)} required />
+                    <input type="number" step="0.01" min="0" onChange={e => setCost(e.target.value)} required />
                 </div>
                 <div className="category">
                     <label>Category</label>
@@ -69,7 +78,6 @@ function ExpenseForm(props) {
                     <input
                         type="date"
                         onChange={e => setDate(e.target.value)}
-                        value={date}
                         required
                     />
                 </div>
@@ -82,4 +90,11 @@ function ExpenseForm(props) {
     )
 };
 
-export default connect(null, { submitExpense })(ExpenseForm);
+function mapStateToProps(state) {
+    return {
+        month: state.month,
+        year: state.year
+    }
+}
+
+export default connect(mapStateToProps, { submitExpense })(ExpenseForm);

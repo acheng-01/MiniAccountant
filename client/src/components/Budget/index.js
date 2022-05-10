@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { renderMonths, renderYears, validate } from '../../helpers';
+import { useNavigate } from 'react-router-dom';
 import { cancelButton, submitButton } from '../../helpers/buttons';
 import { submitBudget } from '../../actions';
 import { connect } from 'react-redux';
 import './BudgetForm.css';
 
 function BudgetForm(props) {
-    const [month, setMonth] = useState(null);
-    const [year, setYear] = useState(null);
     const [amount, setAmount] = useState(null);
-    const data = { month, year, amount };
+    const data = {
+        month: props.month,
+        year: props.year,
+        amount
+    };
     
     const history = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (validate(data.amount)) {
-            data.amount = Math.round(parseFloat(data.amount) * 100) / 100;
-            props.submitBudget(data, history);
-        }
+        props.submitBudget(data, history);
     }
 
     return (
@@ -30,22 +28,16 @@ function BudgetForm(props) {
             </div>
             <form className="budget-form" onSubmit={e => handleSubmit(e)}>
                 <div className="months-field">
-                    <label>Select Month:</label>
-                    <select onChange={e => setMonth(e.target.value)} required>
-                        <option></option>
-                        {renderMonths()}
-                    </select>
+                    <h4>Month:</h4>
+                    <h4>{props.month}</h4>
                 </div>
                 <div className="years-field">
-                    <label>Select Year:</label>
-                    <select onChange={e => setYear(e.target.value)} required>
-                        <option></option>
-                        {renderYears()}
-                    </select>
+                    <h4>Year:</h4>
+                    <h4>{props.year}</h4>
                 </div>
                 <div className="amount-field">
                     <label>Enter goal amount:</label>
-                    <input type="text" onChange={e => setAmount(e.target.value)} required />
+                    <input type="number" step="0.01" min="0" onChange={e => setAmount(e.target.value)} required />
                 </div>
                 <div className="buttons">
                     {cancelButton()}
@@ -56,4 +48,11 @@ function BudgetForm(props) {
     )
 };
 
-export default connect(null, { submitBudget })(BudgetForm);
+function mapStateToProps(state) {
+    return {
+        month: state.month,
+        year: state.year
+    }
+}
+
+export default connect(mapStateToProps, { submitBudget })(BudgetForm);

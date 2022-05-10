@@ -27,12 +27,7 @@ function ExpenseEditForm(props) {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        if (validate(data.cost)) {
-            data.cost = Math.round(parseFloat(data.cost) * 100) / 100;
-            props.updateExpense(expenseId, history, data);
-        } else {
-            alert('Please enter a valid monetary value')
-        }
+        props.updateExpense(expenseId, history, data);
     }
 
     const handleKeyPress = e => {
@@ -63,7 +58,9 @@ function ExpenseEditForm(props) {
                 <div className="cost">
                     <label>Cost</label>
                     <input
-                        type="text"
+                        type="number"
+                        step="0.01"
+                        min="0"
                         onChange={e => setCost(e.target.value)}
                         value={oldCost}
                         required

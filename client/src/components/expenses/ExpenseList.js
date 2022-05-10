@@ -18,7 +18,7 @@ function ExpenseList(props) {
             <div className="expense_item" key={id}>
                 <ul className="expense_information">
                     <li>{item_name}</li>
-                    <li>{parseFloat(cost).toFixed(2)}</li>
+                    <li>${parseFloat(cost).toFixed(2)}</li>
                     <li>{category}</li>
                     <li>{date_added.split('T')[0]}</li>
                 </ul>

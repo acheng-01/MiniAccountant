@@ -1,11 +1,19 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_EXPENSES, FETCH_BUDGET, ADD_EXPENSE, DELETE_EXPENSE, UPDATE_EXPENSE } from './types';
+import { FETCH_USER, SET_MONTH, SET_YEAR, FETCH_EXPENSES, FETCH_BUDGET, ADD_EXPENSE, DELETE_EXPENSE, UPDATE_EXPENSE } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user')
 
     dispatch({ type: FETCH_USER, payload: res.data });
 };
+
+export const setMonth = (month) => async dispatch => {
+    dispatch({ type: SET_MONTH, payload: month });
+};
+
+export const setYear = (year) => async dispatch => {
+    dispatch({ type: SET_YEAR, payload: year });
+}
 
 export const fetchBudget = (month, year) => async dispatch => {
     const res = await axios.get(`/api/budget/${month}-${year}`)

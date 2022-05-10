@@ -7,9 +7,6 @@ const cors = require('cors');
 const morgan = require('morgan');
 const keys = require('./config/keys');
 
-//const localAuthRouter = require('./routes/local-auth-router');
-//const registrationRouter = require('./routes/registration-router');
-
 require('./services/passport');
 
 const app = express();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchBudget, fetchExpenses } from '../../actions'
+import { fetchBudget, fetchExpenses, setMonth, setYear } from '../../actions'
 import { monthConvert, renderMonths, renderYears } from '../../helpers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,24 +12,26 @@ function HeaderContent(props) {
     const today = new Date();
     const currentMonth = monthConvert(today.getMonth());
     const currentYear = today.getFullYear();
-    const [monthToView, setMonth] = useState(currentMonth);
-    const [yearToView, setYear] = useState(currentYear);
     const location = useLocation()
 
     useEffect(() => {
-        props.fetchBudget(monthToView, yearToView)
-        props.fetchExpenses(monthToView, yearToView)
-    }, [monthToView, yearToView])
+        if (props.month.length === 0 || props.year.length === 0) {
+            props.setMonth(currentMonth);
+            props.setYear(parseFloat(currentYear));
+        }
+        props.fetchBudget(props.month, props.year)
+        props.fetchExpenses(props.month, props.year)
+    }, [props.month, props.year])
 
     const altArea = () => {
         return (
             <div className="budget-change-container">
                 <p>View another month's expenses</p>
                 <form className="other-budget">
-                    <select id="month" value={monthToView} onChange={e => setMonth(e.target.value)}>
+                    <select id="month" value={props.month} onChange={e => props.setMonth(e.target.value)}>
                         {renderMonths()}
                     </select>
-                    <select id="year" value={yearToView} onChange={e => setYear(e.target.value)}>
+                    <select id="year" value={props.year} onChange={e => props.setYear(e.target.value)}>
                         {renderYears()}
                     </select>
                 </form>
@@ -47,11 +49,11 @@ function HeaderContent(props) {
         <div className="right-container">
             <ul className="right">
                 <li key="1" className="notification-goal">
-                    <h2>{monthToView} goal:</h2>
+                    <h2>{props.month} goal:</h2>
                     <h3>${parseFloat(props.budget.goal_amount).toFixed(2)}</h3>
                 </li>
                 <li key="2" className="notification-actual">
-                    <h2>{monthToView} actual expenses:</h2>
+                    <h2>{props.month} actual expenses:</h2>
                     <h3>${(props.expenses.reduce((value, obj) => value + parseFloat(obj.cost), 0)).toFixed(2)}</h3>
                 </li>
                 <li key="3" className="logout-button">
@@ -71,8 +73,10 @@ function mapStateToProps(state) {
     return {
         auth: state.auth,
         budget: state.budget,
-        expenses: state.expenses
+        expenses: state.expenses,
+        month: state.month,
+        year: state.year
     };
 };
 
-export default connect(mapStateToProps, { fetchBudget, fetchExpenses })(HeaderContent);
+export default connect(mapStateToProps, { fetchBudget, fetchExpenses, setMonth, setYear })(HeaderContent);

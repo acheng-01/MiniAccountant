@@ -17,12 +17,7 @@ function EditBudget(props) {
 
     const handleUpdate = e => {
         e.preventDefault();
-        if (validate(newData.amount)) {
-            newData.amount = Math.round(parseFloat(newData.amount) * 100) / 100;
-            props.updateBudget(id, history, newData)
-        } else {
-            alert('Please enter a valid monetary value')
-        }
+        props.updateBudget(id, history, newData)
     }
 
     return (
@@ -45,7 +40,7 @@ function EditBudget(props) {
                 </div>
                 <div className="amount-field">
                     <label>Goal amount:</label>
-                    <input type="text" onChange={e => setAmount(e.target.value)} value={amount} required />
+                    <input type="number" step="0.01" min="0" onChange={e => setAmount(e.target.value)} value={amount} required />
                 </div>
                 <div className="buttons">
                     {cancelButton()}
