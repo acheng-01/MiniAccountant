@@ -1,0 +1,35 @@
+.return-button button {
+    border-radius: 20px;
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(255, 42, 42);
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.return-button button:hover {
+    background-color: rgb(221, 0, 0);
+    cursor: pointer;
+}
+
+.add-button {
+    border-radius: 20px;
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(59, 216, 59);
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 700; 
+}
+
+.add-button:hover {
+    background-color: rgb(24, 198, 24);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+    
+}

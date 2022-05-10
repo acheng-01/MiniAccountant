@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.landing-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    font-family: 'PT Sans Narrow', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description h2 {
+    font-size: 32px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+.description h3 {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0 20px;
+}
+
+.credentials {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.oauth {
+    display: flex;
+    flex-direction: column;
+}
+
+.oauth button {
+    margin-bottom: 10px;
+}
+
+.google, .facebook {
+    margin: 0;
+    border-radius: 3px;
+    height: 40px;
+    background-color: white;
+    padding: 0 15px;
+    border: 1px solid rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google, .facebook a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #00000090
+}
+
+.google img {
+    width: 18px;
+    margin-right: 15px;
+}
+
+.facebook img {
+    width: 18px;
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 770px) {
+    .landing-container {
+        width: 100%;
+    }
+
+    .description {
+        width: 75%;
+        margin-bottom: 20px;
+    }
+
+    .description h2 {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .description h3 {
+        text-align: center;
+        font-size: 18px;
+        padding: 0;
+    }
+}

@@ -1,0 +1,73 @@
+.new-budget-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    margin-top: 4%;
+}
+
+.budget-greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.budget-form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget-form label {
+    margin-right: 5px;
+}
+
+.months-field {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.years-field {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.amount-field {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.amount-field input {
+    text-align: right;
+    width: 75px;
+    margin-left: 50px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    justify-content: space-evenly;
+}
+
+.amount-field span {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: red;
+}
+
+@media screen and (max-width: 770px) {
+    .new-budget-container {
+        margin-top: 85px;
+    }
+
+    .budget-greeting h2 {
+        font-size: 24px;
+    }
+
+    .budget-greeting h3 {
+        font-size: 18px;
+    }
+}

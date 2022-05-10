@@ -1,0 +1,52 @@
+.expense-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
+    margin-top: 4%;
+}
+
+.expense-greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.expense-form div {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense-form label {
+    margin-right: 5px;
+}
+
+.expense-form input {
+    text-align: right;
+}
+
+.expense-form .buttons {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 770px) {
+    .expense-form-container {
+        margin-top: 85px;
+    }
+
+    .expense-greeting {
+        width: 85%;
+    }
+
+    .expense-greeting h2 {
+        font-size: 24px;
+    }
+
+    .expense-greeting h3 {
+        font-size: 18px;
+    }
+}

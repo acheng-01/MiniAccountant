@@ -1,0 +1,118 @@
+.expense-items-container {
+    width: 700px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.expense_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.expense_information {
+    display: flex;
+    padding: 10px 20px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 16px;
+    align-items: center;
+}
+
+.expense_information li:nth-child(1) {
+    width: 125px;
+    padding-right: 5px;
+}
+
+.expense_information li:nth-child(2) {
+    width: 100px;
+}
+
+.expense_information li:nth-child(3) {
+    width: 125px;
+}
+
+.expense_information li:nth-child(4) {
+    width: 85px;
+}
+
+.expense-list-btns {
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 45px;
+}
+
+.expense-list-btns button {
+    width: 30px;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+}
+
+.edit-button {
+    background-color: #c587fb;
+    color: white;
+}
+
+.edit-button:hover {
+    cursor: pointer;
+    background-color: #b668fa;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background-color: rgb(217, 0, 0);
+}
+
+@media screen and (max-width: 770px) {
+    .expense-items-container {
+        width: 85%;
+    }
+
+    .expense_item {
+        padding: 5px 5px;
+        width: 100%;
+    }
+
+    .expense_information {
+        width: 90%;
+        padding: 5px 0 5px 5px;
+        font-size: 14px;
+    }
+
+    .expense_information li:nth-child(1) {
+        width: 35%;
+        padding-right: 0;
+    }
+    
+    .expense_information li:nth-child(2) {
+        width: 15%;
+    }
+    
+    .expense_information li:nth-child(3) {
+        width: 25%;
+    }
+    
+    .expense_information li:nth-child(4) {
+        width: 30%;
+        text-align: center;
+    }
+
+    .expense-list-btns {
+        margin: 0;
+        padding-right: 5px;
+    }
+
+    .expense-list-btns button {
+        width: 25px;
+        height: 25px;
+        border-radius: 10px;
+        border: none;
+    }
+}
