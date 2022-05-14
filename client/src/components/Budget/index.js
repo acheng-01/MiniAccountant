@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { cancelButton, submitButton } from '../../helpers/buttons';
 import { submitBudget } from '../../actions';
 import { connect } from 'react-redux';
-import './BudgetForm.css';
+import '../styling/BudgetForm.css';
 
 function BudgetForm(props) {
     const [amount, setAmount] = useState(null);

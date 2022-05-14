@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -50,11 +50,11 @@ function HeaderContent(props) {
             <ul className="right">
                 <li key="1" className="notification-goal">
                     <h2>{props.month} goal:</h2>
-                    <h3>${parseFloat(props.budget.goal_amount).toFixed(2)}</h3>
+                    <h3>${parseFloat(props.budget.goal_amount).toLocaleString(undefined, { maximumFractionDigits: 2 })}</h3>
                 </li>
                 <li key="2" className="notification-actual">
                     <h2>{props.month} actual expenses:</h2>
-                    <h3>${(props.expenses.reduce((value, obj) => value + parseFloat(obj.cost), 0)).toFixed(2)}</h3>
+                    <h3>${(props.expenses.reduce((value, obj) => value + parseFloat(obj.cost), 0)).toLocaleString(undefined, { maximumFractionDigits: 2 })}</h3>
                 </li>
                 <li key="3" className="logout-button">
                     <button>

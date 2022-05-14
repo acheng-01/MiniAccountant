@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { newExpenseButton } from '../../helpers/buttons';
-import { fetchExpenses } from '../../actions';
+import { newExpenseButton } from '../helpers/buttons';
+import { fetchExpenses } from '../actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import ExpenseList from '../expenses/ExpenseList';
-import DataChart from '../expenses/DataChart';
+import ExpenseList from './expenses/ExpenseList';
+import DataChart from './expenses/DataChart';
 
-import './Dashboard.css';
+import './styling/Dashboard.css';
 
 function Dashboard(props) {
     const renderContent = () => {
@@ -21,13 +21,15 @@ function Dashboard(props) {
                         <div className="sub-greeting">
                             <h3>Here are your expenses for {props.budget.goal_month} {props.budget.goal_year}</h3>
                         </div>
-                        <ul className="expense-labels">
-                            <li>Item</li>
-                            <li>Cost</li>
-                            <li>Category</li>
-                            <li>Date of Expense</li>
-                            <li className="placeholder"></li>
-                        </ul>
+                        <div className="expense-labels-container">
+                            <ul className="expense-labels">
+                                <li>Item</li>
+                                <li>Cost</li>
+                                <li>Category</li>
+                                <li>Date of Expense</li>
+                            </ul>
+                            <div className="placeholder" />
+                        </div>
                         <ExpenseList />
                         <div className='add-expense'>
                             {newExpenseButton()}

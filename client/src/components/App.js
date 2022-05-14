@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
-import Landing from './Landing';
-import Dashboard from './Dashboard';
+import Landing from './Landing.js';
+import Dashboard from './Dashboard.js';
 import BudgetForm from './Budget';
 import EditBudget from './Budget/EditBudget';
 import ExpenseForm from './expenses/ExpenseForm';
@@ -22,7 +22,7 @@ function App(props) {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Landing />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="dashboard" element={<Dashboard />} />
                     <Route path="/newbudget" element={<BudgetForm />} />
                     <Route path="/editbudget/:budgetId" element={<EditBudget />} />
                     <Route path="/newexpense" element={<ExpenseForm />} />

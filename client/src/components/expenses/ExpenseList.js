@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { deleteExpense } from '../../actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import './ExpenseList.css';
+import '../styling/ExpenseList.css';
 
 function ExpenseList(props) {
     const handleClickDelete = (id, e) => {
@@ -18,7 +18,7 @@ function ExpenseList(props) {
             <div className="expense_item" key={id}>
                 <ul className="expense_information">
                     <li>{item_name}</li>
-                    <li>${parseFloat(cost).toFixed(2)}</li>
+                    <li>${parseFloat(cost).toLocaleString(undefined, { maximumFractionDigits: 2 })}</li>
                     <li>{category}</li>
                     <li>{date_added.split('T')[0]}</li>
                 </ul>

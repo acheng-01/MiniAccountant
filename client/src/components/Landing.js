@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import './Landing.css';
+import './styling/Landing.css';
 
 function Landing(props) {
     if (props.auth) {

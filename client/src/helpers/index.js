@@ -45,4 +45,4 @@ export const renderCategories = () => {
         return listCategories().map(category => {
             return <option key={category} value={category}>{category}</option>
         })
-}
+};

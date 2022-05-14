@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { renderCategories, monthConvert } from '../../helpers';
 import { cancelButton, submitButton } from '../../helpers/buttons';
 import { submitExpense } from '../../actions';
-import './ExpenseForm.css';
+import '../styling/ExpenseForm.css';
 
 function ExpenseForm(props) {
     const today = new Date().toISOString().split('T')[0];

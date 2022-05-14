@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import HeaderContent from './HeaderContent';
-import './Header.css';
+import '../styling/Header.css';
 
 function Header(props) {
     const renderContent = () => {

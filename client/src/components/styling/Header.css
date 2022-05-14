@@ -63,6 +63,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(22, 22, 22);
 }
 
 .notification-actual {
@@ -71,6 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(22, 22, 22);
 }
 
 .right button{
@@ -99,6 +101,10 @@
     flex-direction: column;
     align-items: flex-end;
     font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.other-budget select:hover {
+    cursor: pointer;
 }
 
 .edit-budget {
