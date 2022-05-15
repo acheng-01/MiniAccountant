@@ -4,6 +4,8 @@ Link to live app: https://stark-mountain-89969.herokuapp.com/
 ## Overview
 MiniAccountant is a RESTful web application designed to help users keep track of their monthly expenses.
 
+![](https://github.com/acheng-01/MiniAccountant/blob/main/MiniAccountant-Sample.gif)
+
 On the client side, ReactJS is used as the primary library for faster rendering, generated through Create-React-App. A few other
 technologies used on the client side include:
 - Redux (for app-wide state management)
